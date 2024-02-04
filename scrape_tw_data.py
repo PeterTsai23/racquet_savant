@@ -34,6 +34,7 @@ idx_to_col = {
     15: 'Sweet Zone (sq in)',
     16: 'Weight (g)',
     17: 'Balance (cm)',
+    19: 'Beam Width (mm)',
     24: 'RA Stiffness'
 }
 # Create dataframe 
@@ -81,6 +82,7 @@ df_cols = [
     'Model',
     'Headsize (sq in)', 
     'Length (in)', 
+    'Beam Width (mm)',
     'Weight (g)', 
     'Balance (cm)', 
     'Swingweight (kg cm^2)', 
@@ -93,7 +95,7 @@ df_cols = [
     'String Pattern'
 ]
 df = df[df_cols].copy()
-specs_numer = df_cols[3:14]
+specs_numer = df_cols[3:15]
 
 # Replace incorrect values
 df['Headsize (sq in)'].replace(11.0, 115.0, inplace=True)
