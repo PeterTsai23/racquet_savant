@@ -100,7 +100,7 @@ if not error:
     empty_0, spec_col_1, empty_1, spec_col_2, empty_2 = st.columns((1, 5, 1, 5, 1))
     weight_vector = []
     for i, s in enumerate(specs_numer):
-        if i < len(specs_numer)//2 + 1:
+        if i < len(specs_numer)//2:
             weight = spec_col_1.slider(label=s, min_value=0, max_value=100, value=50)
         else:
             weight = spec_col_2.slider(label=s, min_value=0, max_value=100, value=50)
