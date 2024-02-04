@@ -100,6 +100,7 @@ specs_numer = df_cols[3:15]
 # Replace incorrect values
 df['Headsize (sq in)'].replace(11.0, 115.0, inplace=True)
 df['Twistweight (kg cm^2)'].replace(115.0, 11.5, inplace=True)
+df['Beam Width (mm)'].replace(242.0, 23.0, inplace=True)
 
 # Aggregate duplicated racquets by averaging
 df = df.groupby(by=['Current', 'Brand', 'Model', 'String Pattern'], as_index=False)[specs_numer].mean()
