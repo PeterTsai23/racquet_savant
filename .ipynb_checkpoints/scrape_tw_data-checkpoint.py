@@ -68,7 +68,7 @@ df.dropna(inplace=True)
 
 df['Recoil Weight (kg cm^2)'] = df['Swingweight (kg cm^2)'] - (0.001*df['Weight (g)'] * (df['Balance (cm)'] - 10)**2)
 df['Recoil Weight (kg cm^2)'] = df['Recoil Weight (kg cm^2)'].apply(lambda x: int(round(x, 0)))
-df['Polarization Index'] = (12 * df['Recoil Weight (kg cm^2)'])/(0.001 * df['Weight (g)'] * (2.54 * df['Length (in)'])**2) 
+df['Polarization Index'] = (12 * df['Recoil Weight (kg cm^2)'])/(0.001 * df['Weight (g)'] * (2.54 * df['Length (in)'])**2) - 1
 df['Polarization Index'] = df['Polarization Index'].apply(lambda x: round(x, 2))
 
 #############################
