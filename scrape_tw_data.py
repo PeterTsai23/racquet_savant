@@ -70,6 +70,7 @@ df['Recoil Weight (kg cm^2)'] = df['Swingweight (kg cm^2)'] - (0.001*df['Weight 
 df['Recoil Weight (kg cm^2)'] = df['Recoil Weight (kg cm^2)'].apply(lambda x: int(round(x, 0)))
 df['Polarization Index'] = (12 * df['Recoil Weight (kg cm^2)'])/(0.001 * df['Weight (g)'] * (2.54 * df['Length (in)'])**2) - 1
 df['Polarization Index'] = df['Polarization Index'].apply(lambda x: round(x, 2))
+df['MgR/I'] = (0.001 * df['Weight (g)'] * 980.5 * df['Balance (cm)'])/(df['Recoil Weight (kg cm^2)'] + 0.001 * df['Weight (g)'] * df['Balance (cm)']**2)
 
 #############################
 #### Save df to CSV File ####
@@ -92,10 +93,11 @@ df_cols = [
     'Sweet Zone (sq in)',
     'RA Stiffness',
     'Vibration Frequency (Hz)',
+    'MgR/I',
     'String Pattern'
 ]
 df = df[df_cols].copy()
-specs_numer = df_cols[3:15]
+specs_numer = df_cols[3:16]
 
 # Replace incorrect values
 df['Headsize (sq in)'].replace(11.0, 115.0, inplace=True)
